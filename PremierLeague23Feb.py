@@ -94,7 +94,7 @@ for i, team in enumerate(sorted_teams):
     print(f"{i+1}\t{team.ljust(20)}\t{points[team]}\t{wins[team]}\t{draws[team]}\t{losses[team]}")
 
 # Print top players
-print("\nTop Players:")
+print("\nThe top three Premier League players this season are:")
 for i, player in enumerate(top_players):
     print(f"{i+1}. {player}")
 
