@@ -1,20 +1,20 @@
-Arsenal: The Emirates – London – Mikel Arteta
-Aston Villa: Villa Park – Birmingham – Unai Emery
-Bournemouth: Vitality Stadium – Bournemouth – Gary O’Neil
-Brentford: Community Stadium – London – Thomas Fank
-Brighton & Hove Albion: Falmer Stadium – Brighton - Roberto De Zerbi
-Chelsea: Stamford Bridge – London – Graham Potter
-Crystal Palace: Selhurst Park – London – Patrick Vieira
-Everton: Goodison Park – Liverpool – Sean Dyche
-Fulham: Craven Cottage – London -Marco Silva
-Leeds United: Elland Road – Leeds – Michael Skubala
-Leicester City:  King Power Stadium – Leicester – Brendan Rodgers
-Liverpool: Anfield – Liverpool – Jurgen Klopp
-Manchester City: The Etihad – Manchester – Pep Guardiola
-Manchester United: Old Trafford – Manchester – Erik ten Hag
-Newcastle United: St James' Park – Newcastle – Eddie Howe
-Nottingham Forest: The City Ground – Nottingham – Steve Cooper
-Southampton: St Mary's – Southampton – Nathan Jones
+Arsenal: The Emirates – London ; Mikel Arteta
+Aston Villa: Villa Park – Birmingham ; Unai Emery
+Bournemouth: Vitality Stadium – Bournemouth ; Gary O’Neil
+Brentford: Community Stadium – London ; Thomas Fank
+Brighton & Hove Albion: Falmer Stadium – Brighton ; Roberto De Zerbi
+Chelsea: Stamford Bridge – London ; Graham Potter
+Crystal Palace: Selhurst Park – London ; Patrick Vieira
+Everton: Goodison Park – Liverpool ; Sean Dyche
+Fulham: Craven Cottage – London ; Marco Silva
+Leeds United: Elland Road – Leeds ; Michael Skubala
+Leicester City:  King Power Stadium – Leicester ; Brendan Rodgers
+Liverpool: Anfield – Liverpool ; Jurgen Klopp
+Manchester City: The Etihad – Manchester ; Pep Guardiola
+Manchester United: Old Trafford – Manchester ; Erik ten Hag
+Newcastle United: St James' Park – Newcastle ; Eddie Howe
+Nottingham Forest: The City Ground – Nottingham ; Steve Cooper
+Southampton: St Mary's – Southampton ; Nathan Jones
 Tottenham Hotspur: Tottenham Hotspur Stadium – London – Antonio Conte
 West Ham:  London Stadium – London – David Moyes
 Wolverhampton Wanderers: Molineux – Wolverhampton – Julen Lopetegui

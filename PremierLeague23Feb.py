@@ -1,5 +1,5 @@
 class Team:
-    def __init__(self, name:str, stadium:str, city:str, ):
+    def __init__(self, name:str, stadium:str, city:str,):
         self.name = name
         self.stadium = stadium
         self.city = city
@@ -7,15 +7,13 @@ class Team:
     def __repr__(self):
         return f"{self.name},{self.stadium},{self.city}"
 
-
 def parseTeamData(data):
     data1 = data.split(":")
-    club = data1[0]
+    team = data1[0]
     data2 = data1[1].split("-")
     stadium = data2[0]
     area = data2[1]
-    return Team(club, stadium, area)
-
+    return Team(team, stadium, area)
 
 def load_teams_fr_file():
     try:
@@ -31,12 +29,59 @@ def load_teams_fr_file():
 
 
 ts = load_teams_fr_file()
+print(" Welcome to the English Premier League 2022/23 season")
+print("*" * 55)
+print("")
+print("          The EPL teams:")
+print("")
 print(ts)
-print()
-print()
+print("")
+print("")
+
+print("  Premier League Club and their manager:")
+print("*" * 43)
+print("  CLUB\t                     MANAGER\t\t")
+print("")
+class Managers:
+
+    def __init__(self, club: str, manager: str):
+        self.club = club
+        self.manager = manager
+
+    def __repr__(self):
+        return f"{self.club}, {self.manager}"
+
+def parseManagersData(data):
+    data1 = data.split(":")
+    club = data1[0]
+    manager = data1[1]
+    return Managers(club, manager)
+
+def load_managers_fr_file():
+    try:
+        managers = []
+        with open("epl.managers.txt", "r") as my_file:
+             for line in my_file:
+                 managers.append(parseManagersData(line))
+    except FileNotFoundError:
+        print("File is not found!")
+    except Exception as e:
+        print("There was an error reading file:", e)
+    else:
+        return managers
+    finally:
+        my_file.close()
+
+mg = load_managers_fr_file()
+#print(mg)
+
+if mg:
+    for m in mg:
+       print(f"{m.club.ljust(25)}\t{m.manager}", end='')
+
 
 # Open the text file of top three players
-with open('top_players.txt', 'r') as f:
+with open("top_players.txt", "r") as f:
     top_three_data = f.readlines()
 
 # Parse the top three player data and create a list
@@ -86,9 +131,11 @@ for i in range(num_matches):
 sorted_teams = sorted(teams, key=lambda x: (points[x], wins[x], points[x]-wins[x]), reverse=True)
 
 # Print the final league table
+print("")
 print("*" * 43)
 print("       Premier League Table 2022/23    ")
 print("*" * 43)
+print("")
 print("Pos\t Team\t\t           Pt\tW\tD\tL")
 for i, team in enumerate(sorted_teams):
     print(f"{i+1}\t{team.ljust(20)}\t{points[team]}\t{wins[team]}\t{draws[team]}\t{losses[team]}")
@@ -100,7 +147,7 @@ for i, player in enumerate(top_players):
 
 
 # Ask if the user wants to relegate the bottom team
-relegate = input("\nDo you want to relegate the bottom team? (yes/no): ")
+relegate = input("\nDo you want to relegate the bottom team? (y/n):")
 if relegate.lower() == "yes":
     bottom_team = sorted_teams[-1]
     print("\n{} has been relegated.".format(bottom_team[0:]))
