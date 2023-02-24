@@ -29,7 +29,7 @@ def load_teams_fr_file():
 
 
 ts = load_teams_fr_file()
-print(" Welcome to the English Premier League 2022/23 season")
+print(" WELCOME TO THE ENGLISH PREMIER LEAGUE 2022/23 SEASON")
 print("*" * 55)
 print("")
 print("          The EPL teams:")
@@ -38,7 +38,7 @@ print(ts)
 print("")
 print("")
 
-print("  Premier League Club and their manager:")
+print("  Premier League Clubs and their manager:")
 print("*" * 43)
 print("  CLUB\t                     MANAGER\t\t")
 print("")
