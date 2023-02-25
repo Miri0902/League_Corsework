@@ -18,9 +18,9 @@ def parseTeamData(data):
 def load_teams_fr_file():
     try:
         teams = []
-        my_file = open("epl.txt", "r")
-        for line in my_file:
-            teams.append(parseTeamData(line))
+        with open("epl.txt", "r") as my_file:
+             for line in my_file:
+                 teams.append(parseTeamData(line))
     except FileNotFoundError:
         print("Please save the file in the project folder!")
     finally:
