@@ -74,7 +74,6 @@ def load_managers_fr_file():
         my_file.close()
 
 mg = load_managers_fr_file()
-#print(mg)
 
 if mg:
     for m in mg:
@@ -91,7 +90,7 @@ top_players = [player.strip() for player in top_three_data]
 # This imports random module, which provides functions for generating random numbers
 import random
 
-# Define the teams in the Premier League
+# Define the teams in the Premier League using dictionary
 teams = ["Arsenal", "Aston Villa", "Brentford", "Brighton & Hove Albion",
          "Burnley", "Chelsea", "Crystal Palace", "Everton", "Leeds United",
          "Leicester City", "Liverpool", "Manchester City", "Manchester United",
@@ -115,8 +114,8 @@ for i in range(num_matches):
         home_score = random.randint(0, 4)
         away_score = random.randint(0, 4)
         if home_score > away_score:
-            points[home_team] += 3
-            wins[home_team] += 1
+            points[home_team] += 3              # square brackets stores values in dictionary home_team, add here
+            wins[home_team] += 1                # docstrings
             losses[away_team] += 1
         elif home_score < away_score:
             points[away_team] += 3
@@ -128,7 +127,7 @@ for i in range(num_matches):
             draws[home_team] += 1
             draws[away_team] += 1
 
-# Sort the teams by their points, wins, and goal difference
+# Sort the teams by their points, wins, and goal difference in desceding order
 sorted_teams = sorted(teams, key=lambda x: (points[x], wins[x], points[x]-wins[x]), reverse=True)
 
 # Print the final league table
