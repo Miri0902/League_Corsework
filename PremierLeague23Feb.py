@@ -1,13 +1,30 @@
 class Team:
+    """
+    This is a class Team from epl.txt
+    """
     def __init__(self, name:str, stadium:str, city:str,):
-        self.name = name
-        self.stadium = stadium
-        self.city = city
+     """ 
+     Team constructor 
+     :param name:  name of the football team
+     :param stadium: teams home ground
+     :param city: team's home city
+     """
+     self.name = name
+     self.stadium = stadium
+     self.city = city
 
     def __repr__(self):
+        """
+        :return: this function creates a list containing the teams' details
+        """
         return f"{self.name},{self.stadium},{self.city}"
 
 def parseTeamData(data):
+    """
+    This function will sort class Team's data and split it
+    :param data:
+    :return: will return sorted class Team list
+    """
     data1 = data.split(":")
     team = data1[0]
     data2 = data1[1].split("-")
@@ -22,7 +39,11 @@ def load_teams_fr_file():
              for line in my_file:
                  teams.append(parseTeamData(line))
     except FileNotFoundError:
-        print("Please save the file in the project folder!")
+        print("Please save the file!")
+    except Exception as e:
+        print("There was an error reading file:", e)
+    else:
+        return teams
     finally:
         my_file.close()
         return teams
@@ -111,13 +132,13 @@ for i in range(num_matches):
     for j in range(0, len(teams), 2):
         home_team = teams[j]
         away_team = teams[j+1]
-        home_score = random.randint(0, 4)
-        away_score = random.randint(0, 4)
+        home_score = random.randint(0, 4)  # random.randint generates a random integer between 0 and 4. It is the
+        away_score = random.randint(0, 4)  # maximum number of goals team can score in a match
         if home_score > away_score:
             points[home_team] += 3              # square brackets stores values in dictionary home_team, add here
             wins[home_team] += 1                # docstrings
             losses[away_team] += 1
-        elif home_score < away_score:
+        elif home_score < away_score:         # assignes points according to < >
             points[away_team] += 3
             wins[away_team] += 1
             losses[home_team] += 1
@@ -127,7 +148,8 @@ for i in range(num_matches):
             draws[home_team] += 1
             draws[away_team] += 1
 
-# Sort the teams by their points, wins, and goal difference in desceding order
+# Sort the teams list by their points, wins, and goal difference in descending order
+# X - refers to a team, their points earned, wins and a goal difference
 sorted_teams = sorted(teams, key=lambda x: (points[x], wins[x], points[x]-wins[x]), reverse=True)
 
 # Print the final league table
