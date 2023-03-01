@@ -153,14 +153,11 @@ for i in range(num_matches):
 sorted_teams = sorted(teams, key=lambda x: (points[x], wins[x], points[x]-wins[x]), reverse=True)
 
 # Print the final league table
-print("")
-print("*" * 43)
-print("       Premier League Table 2022/23    ")
-print("*" * 43)
-print("")
+print(f"\n{'*' * 43}\n{'Premier League Table 2022/23':^43}\n{'*' * 43}\n")
 print("Pos\t Team\t\t           Pt\tW\tD\tL")
 for i, team in enumerate(sorted_teams):
     print(f"{i+1}\t{team.ljust(20)}\t{points[team]}\t{wins[team]}\t{draws[team]}\t{losses[team]}")
+
 
 # Print top three players form a list
 print("\nThe top three Premier League players this season are:")
