@@ -2,7 +2,7 @@ class Team:
     """
     This is a class Team from epl.txt
     """
-    def __init__(self, name:str, stadium:str, city:str,):
+    def __init__(self, name:str, stadium:str, city:str):
      """ 
      Team constructor 
      :param name:  name of the football team
@@ -52,9 +52,11 @@ def load_teams_fr_file():
 ts = load_teams_fr_file()
 print(" WELCOME TO THE ENGLISH PREMIER LEAGUE 2022/23 SEASON")
 print("*" * 55)
+print("\t\t" + "\t" + "The EPL teams:")
 print("")
-print("          The EPL teams:")
-print("\t\t ****************" )
+print("\t\t" + "*" * 10 + "*" * 8)
+print("")
+
 print("")
 print(ts)
 print("")
@@ -113,7 +115,7 @@ import random
 
 # Define the teams in the Premier League using dictionary
 teams = ["Arsenal", "Aston Villa", "Brentford", "Brighton & Hove Albion",
-         "Burnley", "Chelsea", "Crystal Palace", "Everton", "Leeds United",
+        "Burnley", "Chelsea", "Crystal Palace", "Everton", "Leeds United",
          "Leicester City", "Liverpool", "Manchester City", "Manchester United",
          "Newcastle United", "Norwich City", "Southampton", "Tottenham Hotspur",
          "Watford", "West Ham United", "Wolverhampton Wanderers"]
@@ -132,6 +134,7 @@ for i in range(num_matches):
     for j in range(0, len(teams), 2):
         home_team = teams[j]
         away_team = teams[j+1]
+        away_team = random.choice(teams)
         home_score = random.randint(0, 4)  # random.randint generates a random integer between 0 and 4. It is the
         away_score = random.randint(0, 4)  # maximum number of goals team can score in a match
         if home_score > away_score:
