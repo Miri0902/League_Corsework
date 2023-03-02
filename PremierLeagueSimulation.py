@@ -23,9 +23,9 @@ class Team:
 
 def parseTeamData(data):
     """
-    This function will sort class Team's data and split itT
-    :param data:
-    :return: will return sorted class Team list
+    This function will parse data for a team from a string and create a new instance of class Team.
+    :param data: a string containing data for a team
+    :return: a new instance of class Team
     """
     data1 = data.split(":")
     team = data1[0]
@@ -36,6 +36,10 @@ def parseTeamData(data):
 
 
 def load_teams_fr_file():
+    """
+    This function will read data from a file and create a list of instances of class Team.
+    :return: a list of instances of class Team
+    """
     try:
         teams = []
         with open("epl.txt", "r") as my_file:
@@ -51,8 +55,10 @@ def load_teams_fr_file():
         my_file.close()
         return teams
 
-
+# Load teams from file
 ts = load_teams_fr_file()
+
+# Print teams
 print(" WELCOME TO THE ENGLISH PREMIER LEAGUE 2022/23 SEASON")
 print("=" * 55)
 print("\t\t" + "\t" + "The EPL teams:")
@@ -63,6 +69,7 @@ print(ts)
 print("")
 print("=" * 43)
 
+#Print managers
 print("  Premier League Clubs and their manager:")
 print("=" * 43)
 print("  CLUB\t                     MANAGER\t\t")
@@ -80,6 +87,11 @@ class Managers:
 
 
 def parseManagersData(data):
+    """
+    This function will parse data for a manager from a string and create a new instance of class Managers.
+    :param data: a string containing data for managers
+    :return: a new instance of class Managers
+    """
     data1 = data.split(":")
     club = data1[0]
     manager = data1[1]
@@ -87,6 +99,11 @@ def parseManagersData(data):
 
 
 def load_managers_fr_file():
+    """
+    This function will read data from a file and create a list of instances of class Managers.
+
+    :return: a list of instances of class Managers
+    """
     try:
         managers = []
         with open("epl.managers.txt", "r") as my_file:
@@ -101,7 +118,7 @@ def load_managers_fr_file():
     finally:
         my_file.close()
 
-
+# Load managers from a file and print their club and name
 mg = load_managers_fr_file()
 
 if mg:
@@ -123,7 +140,7 @@ import random
 with open('epl.txt') as f:
     teams = [line.strip() for line in f]
 
-# Define constants
+# Define constants for number of matches, points for a win or draw
 NUM_MATCHES = 38
 WIN_POINTS = 3
 DRAW_POINTS = 1
@@ -167,7 +184,8 @@ for i, team in enumerate(sorted_teams):
     team_name = team.split(":")[0].split("-")[0].strip()  # split by ":" or "-" and select first element
     print(f"{i+1}\t{team_name.ljust(20)}\t{points[team]}\t\t{wins[team]}\t\t{draws[team]}\t\t{losses[team]}")
 print("=" * 55)
- #Print top three players form a list
+
+# Print top three players form a list
 print("\nThe top three Premier League players this season are:")
 print("=" * 55)
 for i, player in enumerate(top_players):  # enumerate is a function that keeps track of a position
