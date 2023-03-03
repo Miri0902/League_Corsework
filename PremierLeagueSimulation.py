@@ -1,59 +1,6 @@
-class Team:
-    """
-    This is a class Team from epl.txt
-    """
+# Import all the classes and functions from Teams module
 
-    def __init__(self, name: str, stadium: str, city: str):
-        """
-     Team constructor
-     :param name:  name of the football team
-     :param stadium: teams home ground
-     :param city: team's home city
-     """
-        self.name = name
-        self.stadium = stadium
-        self.city = city
-
-    def __repr__(self):
-        """
-        :return: this function creates a list containing the teams' details
-        """
-        return f"{self.name},{self.stadium},{self.city}"
-
-
-def parseTeamData(data):
-    """
-    This function will parse data for a team from a string and create a new instance of class Team.
-    :param data: a string containing data for a team
-    :return: a new instance of class Team
-    """
-    data1 = data.split(":")
-    team = data1[0]
-    data2 = data1[1].split("-")
-    stadium = data2[0]
-    area = data2[1]
-    return Team(team, stadium, area)
-
-
-def load_teams_fr_file():
-    """
-    This function will read data from a file and create a list of instances of class Team.
-    :return: a list of instances of class Team
-    """
-    try:
-        teams = []
-        with open("epl.txt", "r") as my_file:
-            for line in my_file:
-                teams.append(parseTeamData(line))
-    except FileNotFoundError:
-        print("Please save the file!")
-    except Exception as e:
-        print("There was an error reading file:", e)
-    else:
-        return teams
-    finally:
-        my_file.close()
-        return teams
+from Team import *
 
 # Load teams from file
 ts = load_teams_fr_file()
@@ -69,76 +16,39 @@ print(ts)
 print("")
 print("=" * 43)
 
-#Print managers
+#Print club and thier managers
 print("  Premier League Clubs and their manager:")
 print("=" * 43)
 print("  CLUB\t                     MANAGER\t\t")
 print("")
 
+# Import all the classes and functions from Managers module
 
-class Managers:
-
-    def __init__(self, club: str, manager: str):
-        self.club = club
-        self.manager = manager
-
-    def __repr__(self):
-        return f"{self.club}, {self.manager}"
-
-
-def parseManagersData(data):
-    """
-    This function will parse data for a manager from a string and create a new instance of class Managers.
-    :param data: a string containing data for managers
-    :return: a new instance of class Managers
-    """
-    data1 = data.split(":")
-    club = data1[0]
-    manager = data1[1]
-    return Managers(club, manager)
-
-
-def load_managers_fr_file():
-    """
-    This function will read data from a file and create a list of instances of class Managers.
-
-    :return: a list of instances of class Managers
-    """
-    try:
-        managers = []
-        with open("epl.managers.txt", "r") as my_file:
-            for line in my_file:
-                managers.append(parseManagersData(line))
-    except FileNotFoundError:
-        print("File is not found!")
-    except Exception as e:
-        print("There was an error reading file:", e)
-    else:
-        return managers
-    finally:
-        my_file.close()
+from Managers import *
 
 # Load managers from a file and print their club and name
 mg = load_managers_fr_file()
 
 if mg:
     for m in mg:
-        print(f"{m.club.ljust(25)}\t{m.manager}", end='')  # I have used the end= as this was printing empty line
-        # between rows
+        print(f"{m.club.ljust(25)}\t{m.manager}", end='')  # I have used the end= as this was printing empty line between rows
+        # Print each manager's club and name, with the club name taking up 25 spaces
 
 # Open the text file of top three players
 with open("top_players.txt", "r") as f:
     top_three_data = f.readlines()
+    f.close()
 
 # Parse the top three player data and create a list
 top_players = [player.strip() for player in top_three_data]
 
-# This imports random module, which provides functions for generating random numbers
+# Import the random module, which provides functions for generating random numbers
 import random
 
 # Read team names from file
 with open('epl.txt') as f:
     teams = [line.strip() for line in f]
+    f.close()
 
 # Define constants for number of matches, points for a win or draw
 NUM_MATCHES = 38
