@@ -95,11 +95,16 @@ for i, team in enumerate(sorted_teams):
     print(f"{i+1}\t{team_name.ljust(20)}\t{points[team]}\t\t{wins[team]}\t\t{draws[team]}\t\t{losses[team]}")
 print("=" * 55)
 
+players = input("Do you want to see the top three players in the 2022/23 season? (y/n):")
+if players == "y":
+
 # Print top three players form a list
-print("\nThe top three Premier League players this season are:")
-print("=" * 55)
-for i, player in enumerate(top_players):  # enumerate is a function that keeps track of a position
-    print(f"{i+1}. {player}")
+   print("\nThe top three Premier League players this season are:")
+   print("=" * 55)
+   for i, player in enumerate(top_players):  # enumerate is a function that keeps track of a position
+       print(f"{i + 1}. {player}")
+else:
+    print("You have missed your chance")
 
 # Ask if the user wants to relegate the bottom team
 relegate = input("\nDo you want to relegate the bottom team? (y/n):")
