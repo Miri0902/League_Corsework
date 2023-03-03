@@ -34,9 +34,13 @@ if mg:
         print(f"{m.club.ljust(25)}\t{m.manager}", end='')  # I have used the end= as this was printing empty line between rows
         # Print each manager's club and name, with the club name taking up 25 spaces
 
-# Open the text file of top three players
-with open("top_players.txt", "r") as f:
-    top_three_data = f.readlines()
+# Open the text file of top three players and then close it
+try:
+   with open("top_players.txt", "r") as f:
+      top_three_data = f.readlines()
+except FileNotFoundError:
+    print("File not found!")
+finally:
     f.close()
 
 # Parse the top three player data and create a list
@@ -45,9 +49,13 @@ top_players = [player.strip() for player in top_three_data]
 # Import the random module, which provides functions for generating random numbers
 import random
 
-# Read team names from file
-with open('epl.txt') as f:
-    teams = [line.strip() for line in f]
+# Read team names from file and close the file
+try:
+    with open('epl.txt') as f:
+       teams = [line.strip() for line in f]
+except FileNotFoundError:
+    print("File not found!")
+finally:
     f.close()
 
 # Define constants for number of matches, points for a win or draw
@@ -95,7 +103,7 @@ for i, team in enumerate(sorted_teams):
     print(f"{i+1}\t{team_name.ljust(20)}\t{points[team]}\t\t{wins[team]}\t\t{draws[team]}\t\t{losses[team]}")
 print("=" * 55)
 
-players = input("Do you want to see the top three players in the 2022/23 season? (y/n):")
+players = input("\n\tDo you want to see the top three players in the 2022/23 season? (y/n):")
 if players == "y":
 
 # Print top three players form a list
@@ -104,7 +112,7 @@ if players == "y":
    for i, player in enumerate(top_players):  # enumerate is a function that keeps track of a position
        print(f"{i + 1}. {player}")
 else:
-    print("You have missed your chance")
+    print("\tYou have missed your chance")
 
 # Ask if the user wants to relegate the bottom team
 relegate = input("\nDo you want to relegate the bottom team? (y/n):")
