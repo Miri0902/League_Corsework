@@ -1,40 +1,59 @@
-# Import all the classes and functions from Teams module
+"""
+English Premier League simulation game by Miroslava Ezel N1161732
+"""
 
+while True:
+   epl_game = input("\tDo you want to see The English Premier League teams and their results? (y/n): ")
+   if epl_game == "y":
+    # Print heading and start the game for epl.
+     print(" WELCOME TO THE ENGLISH PREMIER LEAGUE 2022/23 SEASON")
+     print("=" * 55)
+     print("\t\t" + "\t" + "The EPL teams:")
+     print("\t\t" + "=" * 10 + "=" * 8)
+     break
+
+   elif epl_game == "n":
+       print("\tI thought you wanted to see the EPL! You can try again.")
+       continue
+
+   else:
+       print("\tSorry. You have entered an incorrect response. Please enter 'y' or 'n' to continue. ")
+
+# Import all the classes and functions from Teams module.
 from Team import *
 
 # Load teams from file
 ts = load_teams_fr_file()
-
-# Print teams
-print(" WELCOME TO THE ENGLISH PREMIER LEAGUE 2022/23 SEASON")
-print("=" * 55)
-print("\t\t" + "\t" + "The EPL teams:")
-print("\t\t" + "=" * 10 + "=" * 8)
 
 print("")
 print(ts)
 print("")
 print("=" * 43)
 
-#Print club and thier managers
-print("  Premier League Clubs and their manager:")
-print("=" * 43)
-print("  CLUB\t                     MANAGER\t\t")
-print("")
+# Print club and their managers.
 
-# Import all the classes and functions from Managers module
+managers = input("\nDo you want to see the team managers? (y/n):")
+if managers == "y":
+   print("  Premier League Clubs and their manager:")
+   print("=" * 43)
+   print("  CLUB\t                     MANAGER\t\t")
+   print("")
+elif managers =="n":
+    print("\tThat is too bad. Maybe next time!")
+else:
+    print("\tSorry. You have entered an incorrect response. Please enter 'y' or 'n' to continue. ")
+if managers == "y":
+    # Import all the classes and functions from Managers module
+    from Managers import *
+    # Load managers from a file and print their club and name
+    mg = load_managers_fr_file()
 
-from Managers import *
-
-# Load managers from a file and print their club and name
-mg = load_managers_fr_file()
-
-if mg:
-    for m in mg:
-        print(f"{m.club.ljust(25)}\t{m.manager}", end='')  # I have used the end= as this was printing empty line between rows
+    if mg:
+        for m in mg:
+          print(f"{m.club.ljust(25)}\t{m.manager}", end='')  # I have used the end= as this was printing empty line between rows
         # Print each manager's club and name, with the club name taking up 25 spaces
 
-# Open the text file of top three players and then close it
+# Open the text file of top three players and then close it.
 try:
    with open("top_players.txt", "r") as f:
       top_three_data = f.readlines()
@@ -94,25 +113,31 @@ for i in range(NUM_MATCHES):
 # Sort teams based on points
 sorted_teams = sorted(teams, key=lambda x: (-points[x], -wins[x], -draws[x], x))
 
-# Print the final league table
-print(f"\n{'=' * 55}\n\t\t{'Premier League Table 2022/23':^43}\n{'=' * 55}\n")
+# Ask if I want to see the EPL table.
+epl_table = input("\nDo you want me to show you the EPL table? (y/n):")
+if epl_table == "y":
+    # Print the final league table
+    print(f"\n{'=' * 55}\n\t\t{'Premier League Table 2022/23':^43}\n{'=' * 55}\n")
 
-print("Pos\t Team\t\t             Pt\t\tW\t\tD\t\tL")
-for i, team in enumerate(sorted_teams):
-    team_name = team.split(":")[0].split("-")[0].strip()  # split by ":" or "-" and select first element
-    print(f"{i+1}\t{team_name.ljust(20)}\t{points[team]}\t\t{wins[team]}\t\t{draws[team]}\t\t{losses[team]}")
-print("=" * 55)
+    print("Pos\t Team\t\t             Pt\t\tW\t\tD\t\tL")
+    for i, team in enumerate(sorted_teams):
+        team_name = team.split(":")[0].split("-")[0].strip()  # split by ":" or "-" and select first element
+        print(f"{i+1}\t{team_name.ljust(20)}\t{points[team]}\t\t{wins[team]}\t\t{draws[team]}\t\t{losses[team]}")
 
-players = input("\n\tDo you want to see the top three players in the 2022/23 season? (y/n):")
+else:
+    print("\tYou have missed out on the results!")
+
+players = input("\nDo you want to see the top three players in the 2022/23 season? (y/n):")
 if players == "y":
 
-# Print top three players form a list
-   print("\nThe top three Premier League players this season are:")
-   print("=" * 55)
-   for i, player in enumerate(top_players):  # enumerate is a function that keeps track of a position
-       print(f"{i + 1}. {player}")
+    # Print top three players form a list.
+    print("\nThe top three Premier League players this season are:")
+    print("=" * 55)
+# Enumerate is a function that keeps track of a position.
+    for i, player in enumerate(top_players):
+        print(f"{i + 1}. {player}")
 else:
-    print("\tYou have missed your chance")
+    print("\tYou have missed your chance!")
 
 # Ask if the user wants to relegate the bottom team
 relegate = input("\nDo you want to relegate the bottom team? (y/n):")
