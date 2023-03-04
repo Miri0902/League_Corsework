@@ -3,7 +3,7 @@ English Premier League simulation game by Miroslava Ezel N1161732
 """
 
 while True:
-    epl_game = input("\tDo you want to see The English Premier League teams? (y/n): ")
+    epl_game = input("\tDo you want The English Premier League game? (y/n): ")
     if epl_game == "y":
         # Print heading and start the game for epl.
         print("\n WELCOME TO THE ENGLISH PREMIER LEAGUE 2022/23 SEASON")
